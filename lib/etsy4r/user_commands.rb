@@ -6,7 +6,8 @@ module Etsy4r
     end
     
     def get_users_by_name(search_name, optional_params = {})
-      @client.process("/users/keywords/#{search_name}", optional_params)
+      search_name_param = search_name.gsub(" ", "_")
+      @client.process("/users/keywords/#{search_name_param}", optional_params)
     end
     
   end

@@ -42,6 +42,12 @@ describe Etsy4r::UserCommands do
       @res.results.should_not be_blank
     end
     
+    it 'should find users by the search_name provided with spaces' do
+      @res = @user_commands.get_users_by_name('amanda t')
+      @res.should be_success
+      @res.results.should_not be_blank
+    end
+    
     it 'should accept limit as an optional param' do
       @res = @user_commands.get_users_by_name('amanda', {:limit => 15})
       @res.should be_success

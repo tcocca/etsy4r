@@ -70,6 +70,13 @@ describe Etsy4r::ShopCommands do
       @res.results.should_not be_blank
       @res.error_message.should be_blank
     end
+    
+    it 'should return shops when given a search_name with spaces' do
+      @res = @shop_commands.get_shops_by_name('amanda t')
+      @res.should be_success
+      @res.results.should_not be_blank
+      @res.error_message.should be_blank
+    end
   end
   
   describe 'get_featured_details' do

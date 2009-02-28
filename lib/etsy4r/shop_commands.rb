@@ -14,7 +14,8 @@ module Etsy4r
     end
     
     def get_shops_by_name(search_name, optional_params = {})
-      @client.process("/shops/keywords/#{search_name}", optional_params)
+      search_name_param = search_name.gsub(" ", "_")
+      @client.process("/shops/keywords/#{search_name_param}", optional_params)
     end
     
     def get_featured_details(user_id, optional_params = {})
