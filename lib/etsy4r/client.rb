@@ -10,9 +10,7 @@ module Etsy4r
     end
     
     def process(uri, optional_params = {})
-      options = {}
-      options.merge!(optional_params) unless optional_params.blank?
-      Response.new(self.class.get(uri, :query => options))
+      Response.new(self.class.get(uri, :query => optional_params))
     end
     
   end
