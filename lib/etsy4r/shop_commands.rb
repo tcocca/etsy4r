@@ -9,7 +9,7 @@ module Etsy4r
       @client.process("/shops/featured", optional_params)
     end
     
-    def get_listings(user_id, optional_paams = {})
+    def get_listings(user_id, optional_params = {})
       @client.process("/shops/#{user_id}/listings", optional_params)
     end
     
@@ -17,7 +17,7 @@ module Etsy4r
       @client.process("/shops/keywords/#{search_name}", optional_params)
     end
     
-    def get_featured_details(user_id, optional_paams = {})
+    def get_featured_details(user_id, optional_params = {})
       @client.process("/shops/#{user_id}/listings/featured", optional_params)
     end
     
