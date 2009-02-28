@@ -27,6 +27,12 @@ shop = Etsy4r::ShopCommands.new(client)
 #res = shop.get_listings('maymaydesigns')
 #res = shop.get_shops_by_name('amanda')
 #res = shop.get_featured_details(5565464)
-res = shop.get_featured_details('maymaydesigns', :detail_level => 'high')
+#res = shop.get_featured_details('maymaydesigns', :detail_level => 'high')
+
+tag = Etsy4r::TagCommands.new(client)
+#res = tag.get_top_tags
+#res = tag.get_child_tags('bags-and-purses')
+#res = tag.get_child_tags('bags and purses')
+res = tag.get_child_tags('bags_and_purses')
 
 puts res.to_yaml
