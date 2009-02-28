@@ -12,9 +12,7 @@ module Etsy4r
     end
     
     def get_gift_guide_listings(guide_id, optional_params = {})
-      options = {}
-      options.merge!(optional_params) unless optional_params.blank?
-      @client.process("/gift-guides/#{guide_id}/listings", options)
+      @client.process("/gift-guides/#{guide_id}/listings", optional_params)
     end
     
   end

@@ -9,7 +9,9 @@ module Etsy4r
       self.class.default_params :api_key => apikey
     end
     
-    def process(uri, options = {})
+    def process(uri, optional_params = {})
+      options = {}
+      options.merge!(optional_params) unless optional_params.blank?
       Response.new(self.class.get(uri, :query => options))
     end
     
