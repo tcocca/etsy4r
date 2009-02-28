@@ -1,3 +1,12 @@
 require 'rubygems'
 require 'httparty'
 
+require 'etsy4r/client'
+require 'etsy4r/response'
+require 'etsy4r/server_commands'
+require 'etsy4r/gift_guide_commands'
+require 'etsy4r/user_commands'
+require 'etsy4r/shop_commands'
+require 'etsy4r/listing_commands'
+require 'etsy4r/tag_commands'
+require 'etsy4r/favorite_commands'
