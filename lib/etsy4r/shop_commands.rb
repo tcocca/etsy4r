@@ -1,19 +1,25 @@
 module Etsy4r
-  class ShopCommands
-    
-    attr_accessor :client
-    
-    def initialize(client)
-      @client = client
-    end
+  class ShopCommands < Etsy4r::Commands
     
     def get_shop_details(user_id, optional_params = {})
       @client.process("/shops/#{user_id}", optional_params)
     end
     
     def get_featured_sellers(optional_params = {})
-      @client.process("/shops/#{user_id}", optional_params)
+      @client.process("/shops/featured", optional_params)
     end
-        
+    
+    def get_listings(user_id, optional_paams = {})
+      @client.process("/shops/#{user_id}/listings", optional_params)
+    end
+    
+    def get_shops_by_name(search_name, optional_params = {})
+      @client.process("/shops/keywords/#{search_name}", optional_params)
+    end
+    
+    def get_featured_details(user_id, optional_paams = {})
+      @client.process("/shops/#{user_id}/listings/featured", optional_params)
+    end
+    
   end
 end

@@ -1,11 +1,5 @@
 module Etsy4r
-  class GiftGuideCommands
-    
-    attr_accessor :client
-    
-    def initialize(client)
-      @client = client
-    end
+  class GiftGuideCommands < Etsy4r::Commands
     
     def get_gift_guides
       @client.process('/gift-guides')

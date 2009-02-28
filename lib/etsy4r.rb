@@ -2,6 +2,7 @@ require 'rubygems'
 require 'httparty'
 
 require File.dirname(__FILE__) + '/etsy4r/client'
+require File.dirname(__FILE__) + '/etsy4r/commands'
 require File.dirname(__FILE__) + '/etsy4r/response'
 require File.dirname(__FILE__) + '/etsy4r/server_commands'
 require File.dirname(__FILE__) + '/etsy4r/gift_guide_commands'

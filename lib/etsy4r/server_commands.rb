@@ -1,11 +1,5 @@
 module Etsy4r
-  class ServerCommands
-    
-    attr_accessor :client
-    
-    def initialize(client)
-      @client = client
-    end
+  class ServerCommands < Etsy4r::Commands
     
     def get_method_table
       @client.process('/')

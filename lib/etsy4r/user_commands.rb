@@ -1,11 +1,5 @@
 module Etsy4r
-  class UserCommands
-    
-    attr_accessor :client
-    
-    def initialize(client)
-      @client = client
-    end
+  class UserCommands < Etsy4r::Commands
     
     def get_user_details(user_id, optional_params = {})
       @client.process("/users/#{user_id}", optional_params)
