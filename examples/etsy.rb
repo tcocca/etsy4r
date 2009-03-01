@@ -33,6 +33,15 @@ tag = Etsy4r::TagCommands.new(client)
 #res = tag.get_top_tags
 #res = tag.get_child_tags('bags-and-purses')
 #res = tag.get_child_tags('bags and purses')
-res = tag.get_child_tags('bags_and_purses')
+#res = tag.get_child_tags('bags_and_purses')
+
+listing = Etsy4r::ListingCommands.new(client)
+#res = listing.get_listing_details(19749826)
+#res = listing.get_listings_by_tags(['bags_and_purses', 'art', 'shoulder bag'])
+#res = listing.get_listings_by_tags(['bags_and_purses', 'art', 'shoulder bag'], :sort_on => 'price', :sort_order => 'down')
+#res = listing.get_listings_by_keywords(['bags and purses', 'art', 'shoulder bag'])
+#res = listing.get_listings_by_keywords(['bags and purses', 'art', 'shoulder bag'], :min_price => 0, :max_price => 22.99)
+#res = listing.get_front_featured_listings
+res = listing.get_front_featured_listings(:detail_level => 'medium', :limit => '45')
 
 puts res.to_yaml
