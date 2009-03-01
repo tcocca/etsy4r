@@ -32,9 +32,9 @@ describe Etsy4r::GiftGuideCommands do
       @res.results.size.should == 10
     end
     
-    it 'should not return listings given a bad guide_id' do
+    it 'should not return listings when given a bad guide_id' do
       @res = @gift_guide_commands.get_gift_guide_listings(1000)
-      @res.should_not be_success
+      @res.should be_success
       @res.results.should be_blank
       @res.count.should == 0
       @res.results.size.should == 0

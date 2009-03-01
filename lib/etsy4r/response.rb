@@ -24,7 +24,7 @@ module Etsy4r
     end
     
     def success?
-      results && !results.empty?
+      results
     end
     
     def error_message
