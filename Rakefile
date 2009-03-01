@@ -10,7 +10,7 @@ begin
     s.homepage = "http://github.com/tcocca/etsy4r"
     s.description = "Handcrafted API Wrapper for Etsy utilizing httparty"
     s.files = [
-      README",
+      "README",
       "LICENSE",
       "Rakefile",
       "VERSION.yml",
@@ -36,7 +36,7 @@ begin
       "spec/etsy4r/server_commands_spec.rb",
       "spec/etsy4r/tag_commands_spec.rb",
       "spec/etsy4r/user_commands_spec.rb",
-      "tasks/rspec.rake"
+      "tasks/rspec.rake",
       "examples/etsy.rb"
     ]
     s.authors = ["Tom Cocca"]
