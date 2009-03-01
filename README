@@ -1,7 +1,49 @@
 etsy4r
 ======
 
-Description goes here.
+etsy4r is a Ruby wrapper for the Etsy API.  It utilizes the amazing HTTParty gem by John Nunemaker.
+If you need to build an API wrapper that gem is an enourmous help, refer to the following:
+
+http://railstips.org/2008/7/29/it-s-an-httparty-and-everyone-is-invited
+
+etsy4r wraps all of the etsy api calls into 1 nice library.  Etsy's API is currenly in beta so this library will probably 
+be changing frequently.  Most likely their will only be additions.
+
+One thing that does not exist in the Etsy API is the ability to grab all the images for a listing so I have written a parser based on
+Hpricot.  This may dissapear when etsy releases a call to get all images to their API.
+
+
+Etsy API
+=========
+
+The Etsy api is currently in beta.  See this blog post for details:
+http://www.etsy.com/storque/etsy-news/tech-updates-handmade-code-etsys-beta-api-3055/
+
+You will need to email their development staff to get access to the API setion of the website before you can 
+register for an API key which you will need to do.
+
+
+USAGE
+==========
+
+See http://github.com/tcocca/etsy4r/tree/master/examples
+
+I have added example calls to all of the methods and object.
+
+
+INSTALATION
+==========
+
+sudo gem install tcocca-etsy4r -s http://gems.github.com
+
+
+QUESTION/CONCERNS/COMMENTS
+==========
+
+Send me an email through github or at tom dot cocca at gmail dot com
+Feel free to fork and submit changes
+There is a test suite built on rspec. 
+
 
 COPYRIGHT
 =========
