@@ -19,7 +19,8 @@ describe Etsy4r::ServerCommands do
     it 'should get all methods' do
       @res = @server_commands.get_method_table
       @res.should be_success
-      @res.results.should_not be_blank
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
     end
   end
   
@@ -27,7 +28,8 @@ describe Etsy4r::ServerCommands do
     it 'should ping the server' do
       @res = @server_commands.ping
       @res.should be_success
-      @res.results.should_not be_blank
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
     end
   end
   
@@ -35,7 +37,8 @@ describe Etsy4r::ServerCommands do
     it 'should return the server time' do
       @res = @server_commands.get_server_epoch
       @res.should be_success
-      @res.results.should_not be_blank
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
     end
   end
   
