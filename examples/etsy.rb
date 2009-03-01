@@ -36,7 +36,7 @@ tag = Etsy4r::TagCommands.new(client)
 #res = tag.get_child_tags('bags_and_purses')
 
 listing = Etsy4r::ListingCommands.new(client)
-#res = listing.get_listing_details(19749826)
+#res = listing.get_listing_details(19781773, :detail_level => 'high')
 #res = listing.get_listings_by_tags(['bags_and_purses', 'art', 'shoulder bag'])
 #res = listing.get_listings_by_tags(['bags_and_purses', 'art', 'shoulder bag'], :sort_on => 'price', :sort_order => 'down')
 #res = listing.get_listings_by_keywords(['bags and purses', 'art', 'shoulder bag'])
@@ -52,6 +52,10 @@ favorite = Etsy4r::FavoriteCommands.new(client)
 #res = favorite.get_favorite_shops_of_user(5565464)
 #res = favorite.get_favorite_shops_of_user(5565464, :detail_level => 'high', :limit => 5, :offset => 5)
 #res = favorite.get_favorite_listings_of_user(5565464)
-res = favorite.get_favorite_listings_of_user(5565464, :detail_level => 'high', :limit => 5, :offset => 5)
+#res = favorite.get_favorite_listings_of_user(5565464, :detail_level => 'high', :limit => 5, :offset => 5)
 
-puts res.to_yaml
+#puts res.to_yaml
+
+
+image_parser = Etsy4r::ImageParser.new(19781773)
+puts image_parser.images.to_yaml
