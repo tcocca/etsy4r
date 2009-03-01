@@ -16,3 +16,45 @@ module Etsy4rSpecHelper
   end
   
 end
+
+
+module Etsy4rImageParserSpecHelper
+  
+  def test_image_hash
+    {
+      "0" => {
+        "image_url_430xN" => "http://ny-image2.etsy.com/il_430xN.53071410.jpg",
+        "image_url_200x200" => "http://ny-image2.etsy.com/il_200x200.53071410.jpg",
+        "image_url_155x125" => "http://ny-image2.etsy.com/il_155x125.53071410.jpg",
+        "image_url_75x75" => "http://ny-image2.etsy.com/il_75x75.53071410.jpg",
+        "image_url_25x25" => "http://ny-image2.etsy.com/il_25x25.53071410.jpg",
+        "image_url_50x50" => "http://ny-image2.etsy.com/il_50x50.53071410.jpg"
+      },
+      "1" => {
+        "image_url_430xN" => "http://ny-image2.etsy.com/il_430xN.53071678.jpg",
+        "image_url_200x200" => "http://ny-image2.etsy.com/il_200x200.53071678.jpg",
+        "image_url_155x125" => "http://ny-image2.etsy.com/il_155x125.53071678.jpg",
+        "image_url_75x75" => "http://ny-image2.etsy.com/il_75x75.53071678.jpg",
+        "image_url_25x25" => "http://ny-image2.etsy.com/il_25x25.53071678.jpg",
+        "image_url_50x50" => "http://ny-image2.etsy.com/il_50x50.53071678.jpg"
+      },
+      "2" => {
+        "image_url_430xN" => "http://ny-image0.etsy.com/il_430xN.53498548.jpg",
+        "image_url_200x200" => "http://ny-image0.etsy.com/il_200x200.53498548.jpg",
+        "image_url_155x125" => "http://ny-image0.etsy.com/il_155x125.53498548.jpg",
+        "image_url_75x75" => "http://ny-image0.etsy.com/il_75x75.53498548.jpg",
+        "image_url_25x25" => "http://ny-image0.etsy.com/il_25x25.53498548.jpg",
+        "image_url_50x50" => "http://ny-image0.etsy.com/il_50x50.53498548.jpg"
+      },
+      "3" => {
+        "image_url_430xN" => "http://ny-image1.etsy.com/il_430xN.53498749.jpg",
+        "image_url_200x200" => "http://ny-image1.etsy.com/il_200x200.53498749.jpg",
+        "image_url_155x125" => "http://ny-image1.etsy.com/il_155x125.53498749.jpg",
+        "image_url_75x75" => "http://ny-image1.etsy.com/il_75x75.53498749.jpg",
+        "image_url_25x25" => "http://ny-image1.etsy.com/il_25x25.53498749.jpg",
+        "image_url_50x50" => "http://ny-image1.etsy.com/il_50x50.53498749.jpg"
+      }
+    }
+  end
+
+end  
