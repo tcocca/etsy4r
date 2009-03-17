@@ -6,7 +6,8 @@ require 'yaml'
 
 
 # Initialize a new Etsy API Client
-client = Etsy4r::Client.new('your_api_key')
+#client = Etsy4r::Client.new('your_api_key')
+client = Etsy4r::Client.new('dacmw5zgq4x82z95ben5em6v')
 
 
 # Initialize a ServerCommands object
@@ -32,7 +33,6 @@ if res.success?
   puts res.body .to_yaml    # Return the full body response of the call
   puts res.results.to_yaml  # Return the results (the actual deta) in an array of hashes
   puts res.count            # Count of all pieces of data that the Query returned (note: this is a total count not the count returned)
-  puts res.limit            # The max number of records returned in the API call
   puts res.type             # The type of result passed back
   puts res.params           # The params passed in to the query  
 else
@@ -86,8 +86,8 @@ res = shop.get_featured_sellers
 # Returns all listings for a "shop" (or user)
 # Takes either a user_id or a user_name
 # Also takes :detail_level, :limit and :offset optional params
-res = shop.get_listings(5565464)
-res = shop.get_listings('maymaydesigns')
+res = shop.get_shop_listings(5565464)
+res = shop.get_shop_listings('maymaydesigns')
 
 # Search for shops be a name
 # The name params is required
@@ -170,8 +170,8 @@ favorite = Etsy4r::FavoriteCommands.new(client)
 # Takes either a user_id or user_name
 # Optional params
 #  :detail_level, :limit, :offset
-res = favorite.get_favorers_of_user(5565464)
-res = favorite.get_favorers_of_user(5565464, :detail_level => 'high', :limit => 5, :offset => 5)
+res = favorite.get_favorers_of_shop(5565464)
+res = favorite.get_favorers_of_shop(5565464, :detail_level => 'high', :limit => 5, :offset => 5)
 
 # Returns the users who favorited the listing passed in
 # Takes a listing_id
@@ -193,6 +193,43 @@ res = favorite.get_favorite_shops_of_user(5565464, :detail_level => 'high', :lim
 #  :detail_level, :limit, :offset
 res = favorite.get_favorite_listings_of_user(5565464)
 res = favorite.get_favorite_listings_of_user(5565464, :detail_level => 'high', :limit => 5, :offset => 5)
+
+
+# Initialize a FeedbackCommands object
+feedback = Etsy4r::FeedbackCommands.new(client)
+
+# Returns the top level tags, no params
+res = feedback.get_feedback(17331973)
+
+# Returns all feedback for a user
+# Takes either a user_id or user_name
+# Optional params
+#  :limit, :offset
+res = feedback.get_feedback_for_user(5565464)
+res = feedback.get_feedback_for_user('maymaydesigns')
+
+# Returns all feedback where the user was the buyer
+# Takes either a user_id or user_name
+# Optional params
+#  :limit, :offset
+res = feedback.get_feedback_as_buyer(5565464)
+res = feedback.get_feedback_as_buyer('maymaydesigns')
+
+# Returns all feedback where the user left feedback
+# Takes either a user_id or user_name
+# Optional params
+#  :limit, :offset
+res = feedback.get_feedback_for_others(5565464)
+res = feedback.get_feedback_for_others('maymaydesigns')
+
+# Returns all feedback where the user was the seller
+# Takes either a user_id or user_name
+# Optional params
+#  :limit, :offset
+res = feedback.get_feedback_as_seller(5565464)
+res = feedback.get_feedback_as_seller('maymaydesigns')
+
+puts res.to_yaml
 
 
 # Initialize an ImageParser object
