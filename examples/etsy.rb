@@ -116,6 +116,19 @@ res = tag.get_child_tags('bags and purses')
 res = tag.get_child_tags('bags_and_purses')
 
 
+# Initialize a CategoryCommands object
+tag = Etsy4r::CategoryCommands.new(client)
+
+# Returns the top level categories, no params
+res = tag.get_top_categories
+
+# Returns the child categories of a category
+# Spaces and dashes get converted to underscores
+res = tag.get_child_categories('bags-and-purses')
+res = tag.get_child_categories('bags and purses')
+res = tag.get_child_categories('bags_and_purses')
+
+
 # Initialiaze a ListingCommands object
 listing = Etsy4r::ListingCommands.new(client)
 

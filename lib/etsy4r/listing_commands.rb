@@ -7,13 +7,13 @@ module Etsy4r
     
     def get_listings_by_tags(tags, optional_params = {})
       tag_params = tags.collect{|t| t.gsub(" ", "_")}
-      tag_param = tag_params.join('+')
+      tag_param = tag_params.join(';')
       @client.process("/listings/tags/#{tag_param}", optional_params)
     end
     
     def get_listings_by_keywords(keywords, optional_params = {})
       keyword_params = keywords.collect{|k| k.gsub(" ", "_")}
-      keyword_param = keyword_params.join('+')
+      keyword_param = keyword_params.join(';')
       @client.process("/listings/keywords/#{keyword_param}", optional_params)
     end
     
