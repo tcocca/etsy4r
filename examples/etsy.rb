@@ -85,7 +85,11 @@ res = shop.get_featured_sellers
 
 # Returns all listings for a "shop" (or user)
 # Takes either a user_id or a user_name
-# Also takes :detail_level, :limit and :offset optional params
+# Optional Params
+#   :detail_level, :limit, :offset, 
+#   :sort_order   enum(up, down)
+#   :sort_on      enum(created, price)
+#   section_id    int
 res = shop.get_shop_listings(5565464)
 res = shop.get_shop_listings('maymaydesigns')
 
@@ -162,6 +166,41 @@ res = listing.get_listings_by_keywords(['bags and purses', 'art', 'shoulder bag'
 res = listing.get_front_featured_listings
 res = listing.get_front_featured_listings(:detail_level => 'medium', :limit => '45')
 
+# Returns all listings
+# No required params
+# Optional params
+#  :detail_level, :limit, :offset, :sort_on, :sort_order
+res = listing.get_all_listings
+res = listing.get_all_listings(:detail_level => 'medium', :limit => 45, :offset => 45, :sort_on => 'ending', :sort_order => 'down')
+
+# Returns all listings in a category
+# category is required
+# Optional params
+#  :detail_level, :limit, :offset, :sort_on, :sort_order
+res = listing.get_listings_by_category('bags_and_purses')
+res = listing.get_listings_by_category('bags_and_purses', :detail_level => 'medium', :limit => 15, :offset => 15, :sort_on => 'price', :sort_order => 'down')
+
+# Returns all listings matching a color
+# color is required
+# HSV color as an array (0;0;0 through 360;100;100) or an RGB color in web notation (#000000 through #FFFFFF.) 
+#  NOTE: The Etsy API uses HSV colors internally, and the conversion from RGB to HSV is not 100% accurate.
+#  (RGB colors are converted to HSV internally, which may result in small rounding errors.  They may omit the leading "#", or use the three-digit form.)
+# Optional params
+#  :wiggle  default => 5, type => int
+#  :detail_level, :limit, :offset
+res = listing.get_listings_by_color('FFFFFF')
+res = listing.get_listings_by_color('#FFFFFF')
+res = listing.get_listings_by_color('360;100;100', :detail_level => 'medium', :limit => 15, :offset => 15, :wiggle => 10)
+
+# Returns all listings matching a color and search terms
+# color is required (HSV or RGB)
+# an array of search terms is required
+# Optional params
+#  :detail_level, :limit, :offset, :wiggle
+res = listing.get_listings_by_color_and_keywords('FFFFFF', ['bags', 'bracelets'])
+res = listing.get_listings_by_color_and_keywords('#FFFFFF', ['bags', 'bracelets'])
+res = listing.get_listings_by_color_and_keywords('360;100;100', ['bags', 'bracelets'], :detail_level => 'medium', :wiggle => 10)
+
 
 # Initialize a FavoriteCommands object
 favorite = Etsy4r::FavoriteCommands.new(client)
@@ -228,8 +267,6 @@ res = feedback.get_feedback_for_others('maymaydesigns')
 #  :limit, :offset
 res = feedback.get_feedback_as_seller(5565464)
 res = feedback.get_feedback_as_seller('maymaydesigns')
-
-puts res.to_yaml
 
 
 # Initialize an ImageParser object

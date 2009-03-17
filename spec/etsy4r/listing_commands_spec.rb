@@ -86,4 +86,119 @@ describe Etsy4r::ListingCommands do
     end
   end
   
+  describe 'get_all_listings' do
+    it 'should return listings' do
+      @res = @listing_commands.get_all_listings
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should take optional params' do
+      @res = @listing_commands.get_all_listings(:detail_level => 'medium', :limit => 45, :offset => 45, :sort_on => 'ending', :sort_order => 'down')
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+  end
+  
+  describe 'get_listings_by_category' do 
+    it 'should return listings' do
+      @res = @listing_commands.get_listings_by_category('bags_and_purses')
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should return listings when given a category with spaces' do
+      @res = @listing_commands.get_listings_by_category('bags and purses')
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should take optional params' do
+      @res = @listing_commands.get_listings_by_category('bags and purses', :detail_level => 'medium', :limit => 45, :offset => 45, :sort_on => 'price', :sort_order => 'down')
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+  end
+  
+  describe 'get_listings_by_color' do
+    it 'should return listings when given 6 hex digits' do
+      @res = @listing_commands.get_listings_by_color('FFFFFF')
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should return listings when given 6 hex digits with a pound sign' do
+      @res = @listing_commands.get_listings_by_color('#FFFFFF')
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should return listings when given an HSV format' do
+      @res = @listing_commands.get_listings_by_color('360;100;100')
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should take optional params' do
+      @res = @listing_commands.get_listings_by_color('FFFFFF', :detail_level => 'medium', :limit => 45, :offset => 45, :wiggle => 10)
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+  end
+  
+  describe 'get_listings_by_materials' do
+    it 'should take an array of materials' do
+      @res = @listing_commands.get_listings_by_materials(['cotton', 'wool'])
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should take the optional params sort_on and sort_order' do
+      @res = @listing_commands.get_listings_by_materials(['cotton', 'wool'], :sort_on => 'price', :sort_order => 'down')
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+  end
+  
+  describe 'get_listings_by_color_and_keywords' do
+    it 'should return listings when a hex color and keywords' do
+      @res = @listing_commands.get_listings_by_color_and_keywords('FFFFFF', ['bags', 'bracelets'])
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should return listings when given a hex color with pound and keywords' do
+      @res = @listing_commands.get_listings_by_color_and_keywords('#FFFFFF', ['bags', 'bracelets'])
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should return listings when given an HSV color and keywords' do
+      @res = @listing_commands.get_listings_by_color_and_keywords('360;100;100', ['bags', 'bracelets'])
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+    
+    it 'should take optional params' do
+      @res = @listing_commands.get_listings_by_color_and_keywords('FFFFFF', ['bags', 'bracelets'], :detail_level => 'medium', :limit => 45, :offset => 45, :wiggle => 10)
+      @res.should be_success
+      @res.results.should_not be_nil
+      @res.error_message.should be_blank
+    end
+  end
+  
 end
