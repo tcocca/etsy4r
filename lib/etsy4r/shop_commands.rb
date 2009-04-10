@@ -9,12 +9,6 @@ module Etsy4r
       @client.process("/shops/featured", optional_params)
     end
     
-    def get_listings(user_id, optional_params = {})
-      warn "[DEPRECATION] get_listings is deprecated. " <<
-             "Use get_shop_listings instead."
-      get_shop_listings(user_id, optional_params = {})
-    end
-    
     def get_shop_listings(user_id, optional_params = {})
       @client.process("/shops/#{user_id}/listings", optional_params)
     end

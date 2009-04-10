@@ -47,22 +47,6 @@ describe Etsy4r::ShopCommands do
     end
   end
   
-  describe 'get_listings' do
-    it 'should return listings when given a user_id' do
-      @res = @shop_commands.get_listings(5565464)
-      @res.should be_success
-      @res.results.should_not be_nil
-      @res.error_message.should be_blank
-    end
-    
-    it 'should return listings when given a user_name' do
-      @res = @shop_commands.get_listings('maymaydesigns')
-      @res.should be_success
-      @res.results.should_not be_nil
-      @res.error_message.should be_blank
-    end
-  end
-  
   describe 'get_shop_listings' do
     it 'should return listings when given a user_id' do
       @res = @shop_commands.get_shop_listings(5565464)
