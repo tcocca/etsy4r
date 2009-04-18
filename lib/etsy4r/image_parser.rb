@@ -5,13 +5,14 @@ module Etsy4r
     
     def initialize(listing_id)
       @listing_id = listing_id
-      @parse_url = "http://www.etsy.com/view_listing.php?listing_id=#{@listing_id}"
+      @parse_url = set_parse_url
+      @images = parse_images
     end
     
-    def images
-      return @listing_images if @listing_images
+    def parse_images
+      return @images if @images
       
-      @listing_images = {}
+      listing_images = {}
       require 'hpricot'
       require 'open-uri'
       
@@ -24,7 +25,7 @@ module Etsy4r
       image_list.each_with_index do |img_url, i|
         img_dom = /\/\/(\S*)\//.match(img_url)[1]
         img_id = /\.([\d]*)\./.match(img_url)[1]
-        @listing_images["#{i}"] = {
+        listing_images["#{i}"] = {
           "image_url_430xN" => "http://#{img_dom}/il_430xN.#{img_id}.jpg",
           "image_url_200x200" => "http://#{img_dom}/il_200x200.#{img_id}.jpg",
           "image_url_155x125" => "http://#{img_dom}/il_155x125.#{img_id}.jpg",
@@ -33,7 +34,13 @@ module Etsy4r
           "image_url_25x25" => "http://#{img_dom}/il_25x25.#{img_id}.jpg"
         }
       end
-      return @listing_images
+      return listing_images
+    end
+    
+    private
+    
+    def set_parse_url
+      "http://www.etsy.com/view_listing.php?listing_id=#{@listing_id}"
     end
     
   end

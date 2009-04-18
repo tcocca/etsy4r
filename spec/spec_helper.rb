@@ -1,9 +1,11 @@
 begin
   require 'spec'
+  require 'mocha'
 rescue LoadError
   require 'rubygems'
   gem 'rspec'
   require 'spec'
+  require 'mocha'
 end
 
 $:.unshift(File.dirname(__FILE__) + '/../lib')
@@ -16,7 +18,6 @@ module Etsy4rSpecHelper
   end
   
 end
-
 
 module Etsy4rImageParserSpecHelper
   

@@ -6,8 +6,8 @@ describe Etsy4r::ImageParser do
   include Etsy4rImageParserSpecHelper
   
   before do
+    Etsy4r::ImageParser.any_instance.stubs(:set_parse_url).returns(File.dirname(__FILE__) + "/../fixtures/images.html")
     @image_parser = Etsy4r::ImageParser.new(19781773)
-    @image_parser.parse_url = File.dirname(__FILE__) + "/../fixtures/images.html"
   end
   
   describe 'initialize' do
