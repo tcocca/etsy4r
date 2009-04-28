@@ -31,7 +31,7 @@ puts Time.at(res.results.first)
 # These methods are available on every single call except on the image parser object
 if res.success?
   puts res.body .to_yaml    # Return the full body response of the call
-  puts res.results.to_yaml  # Return the results (the actual deta) in an array of hashes
+  puts res.results.to_yaml  # Return the results (the actual data) in an array of hashes
   puts res.count            # Count of all pieces of data that the Query returned (note: this is a total count not the count returned)
   puts res.type             # The type of result passed back
   puts res.params           # The params passed in to the query  
