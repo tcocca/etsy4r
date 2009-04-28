@@ -7,11 +7,9 @@ If you need to build an API wrapper that gem is an enourmous help, refer to the 
 http://railstips.org/2008/7/29/it-s-an-httparty-and-everyone-is-invited
 
 etsy4r wraps all of the etsy api calls into 1 nice library.  Etsy's API is currenly in beta so this library will probably 
-be changing frequently.  Most likely their will only be additions.
+be changing frequently.  Most likely there will only be additions.
 
-One thing that does not exist in the Etsy API is the ability to grab all the images for a listing so I have written a parser based on
-Hpricot.  This may dissapear when etsy releases a call to get all images to their API.
-
+Etsy added all images to a listing details when the detail_level is set to :high so I have removed my Etsy4r::ImageParser class
 
 Etsy API
 =========

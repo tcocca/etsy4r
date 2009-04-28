@@ -267,13 +267,3 @@ res = feedback.get_feedback_for_others('maymaydesigns')
 #  :limit, :offset
 res = feedback.get_feedback_as_seller(5565464)
 res = feedback.get_feedback_as_seller('maymaydesigns')
-
-
-# Initialize an ImageParser object
-# This takes a single parameter which is the id of an Etsy listing
-image_parser = Etsy4r::ImageParser.new(19781773)
-
-# Calling images on the object return a hash of the images
-# The hash contains all the formatted URLs that Etsy returns 
-#  (for the single image they give for a listing)
-puts image_parser.images.to_yaml

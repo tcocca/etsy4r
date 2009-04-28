@@ -13,4 +13,4 @@ require File.dirname(__FILE__) + '/etsy4r/tag_commands'
 require File.dirname(__FILE__) + '/etsy4r/favorite_commands'
 require File.dirname(__FILE__) + '/etsy4r/category_commands'
 require File.dirname(__FILE__) + '/etsy4r/feedback_commands'
-require File.dirname(__FILE__) + '/etsy4r/image_parser'
+

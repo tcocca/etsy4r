@@ -22,7 +22,6 @@ begin
       "lib/etsy4r/favorite_commands.rb",
       "lib/etsy4r/feedback_commands.rb",
       "lib/etsy4r/gift_guide_commands.rb",
-      "lib/etsy4r/image_parser.rb",
       "lib/etsy4r/listing_commands.rb",
       "lib/etsy4r/response.rb",
       "lib/etsy4r/server_commands.rb",
@@ -32,14 +31,12 @@ begin
       "spec/rcov.opts",
       "spec/spec.opts",
       "spec/spec_helper.rb",
-      "spec/fixtures/images.html",
       "spec/etsy4r/category_commands_spec.rb",
       "spec/etsy4r/client_spec.rb",
       "spec/etsy4r/commands_spec.rb",
       "spec/etsy4r/favorite_commands_spec.rb",
       "spec/etsy4r/feedback_commands_spec.rb",
       "spec/etsy4r/gift_guide_commands_spec.rb",
-      "spec/etsy4r/image_parser_spec.rb",
       "spec/etsy4r/listing_commands_spec.rb",
       "spec/etsy4r/server_commands_spec.rb",
       "spec/etsy4r/shop_commands_spec.rb",
@@ -50,7 +47,6 @@ begin
     ]
     s.authors = ["Tom Cocca"]
     s.add_dependency 'httparty'
-    s.add_dependency 'hpricot'
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
