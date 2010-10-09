@@ -4,7 +4,7 @@ require 'webmock'
 require 'vcr'
 
 VCR.config do |c|
-  c.cassette_library_dir = File.dirname(__FILE__) + '../spec/fixtures/vcr_cassettes'
+  c.cassette_library_dir = File.dirname(__FILE__) + '/../spec/fixtures/vcr_cassettes'
   c.http_stubbing_library = :webmock
   c.default_cassette_options = { :record => :new_episodes }
 end
