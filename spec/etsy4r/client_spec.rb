@@ -1,6 +1,4 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-require File.dirname(__FILE__) + '/../../lib/etsy4r'
-require File.dirname(__FILE__) + '/../../lib/etsy4r/client'
 
 describe Etsy4r::Client do
   include Etsy4rSpecHelper
@@ -11,11 +9,12 @@ describe Etsy4r::Client do
     end
     
     it 'sets the base_uri' do 
-      @client.class.base_uri.should == 'http://beta-api.etsy.com/v1'
+      @client.class.base_uri.should == 'http://openapi.etsy.com/v2/sandbox/public'
     end
     
     it 'sets default params to include the api key' do
-      @client.class.default_params.should == {:api_key => 'dacmw5zgq4x82z95ben5em6v'}
+      @client.class.default_params.keys.should == [:api_key]
+      @client.class.default_params[:api_key].should_not be_blank
     end
   end
   

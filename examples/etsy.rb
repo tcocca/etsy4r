@@ -7,11 +7,12 @@ require 'yaml'
 
 # Initialize a new Etsy API Client
 #client = Etsy4r::Client.new('your_api_key')
-client = Etsy4r::Client.new('dacmw5zgq4x82z95ben5em6v')
+client = Etsy4r::Client.new('e2p49kcac8695bfpx4v7z9kn')
+client = Etsy4r::Client.new('e2p49kcac8695bfpx4v7z9k')
 
 
 # Initialize a ServerCommands object
-server = Etsy4r::ServerCommands.new(client)
+server = Etsy4r::Server.new(client)
 
 # Ping the server
 res = server.ping

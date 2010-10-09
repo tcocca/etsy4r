@@ -1,11 +1,11 @@
 module Etsy4r
-  class Commands
+  class Command
     
     attr_accessor :client
     
     def initialize(client)
       @client = client
     end
-        
+    
   end
 end

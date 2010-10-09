@@ -1,12 +1,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-require File.dirname(__FILE__) + '/../../lib/etsy4r'
 
-describe Etsy4r::ListingCommands do
+describe Etsy4r::Listing do
   include Etsy4rSpecHelper
   
   before do
     @client = etsy4r_client
-    @listing_commands = Etsy4r::ListingCommands.new(@client)
+    @listing_commands = Etsy4r::Listing.new(@client)
   end
     
   describe 'initialize' do    

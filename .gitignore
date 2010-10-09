@@ -1,3 +1,5 @@
 *.sw?
 .DS_Store
 coverage
+spec/etsy_credentials.yml
+spec/fixtures/vcr_cassettes/*.yml

@@ -1,0 +1,81 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: http://openapi.etsy.com:80/v2/sandbox/oauth/request_token
+    body: 
+    headers: 
+      accept: 
+      - "*/*"
+      connection: 
+      - close
+      user-agent: 
+      - OAuth gem v0.4.3
+      authorization: 
+      - OAuth oauth_body_hash="2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D", oauth_callback="oob", oauth_consumer_key="e2p49kcac8695bfpx4v7z9kn", oauth_nonce="EdabKYeBMs2fvYgtcDrcVf3fa5x9jHBjoAGDXY3voQ", oauth_signature="fT31gaiOJuC3foCk5i%2F%2FIBQCLBo%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1286329406", oauth_version="1.0"
+      content-length: 
+      - 0
+      host: 
+      - openapi.etsy.com
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/plain
+      connection: 
+      - close
+      server: 
+      - Mashery Proxy
+      date: 
+      - Wed, 06 Oct 2010 01:41:19 GMT
+      x-mashery-responder: 
+      - proxyworker-i-6c3c2104.mashery.com
+      content-length: 
+      - "215"
+      accept-ranges: 
+      - bytes
+    body: oauth_token=he74wsazmnn2cbycucnse9sc&oauth_token_secret=fae5JPaX8Vtc&oauth_consumer_key=e2p49kcac8695bfpx4v7z9kn&oauth_callback=oob&login_url=https%3A%2F%2Fwww.etsy.com%2Foauth%2Fsignin&oauth_callback_confirmed=true
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: http://openapi.etsy.com:80/v2/sandbox/oauth/access_token
+    body: 
+    headers: 
+      accept: 
+      - "*/*"
+      connection: 
+      - close
+      user-agent: 
+      - OAuth gem v0.4.3
+      authorization: 
+      - OAuth oauth_body_hash="2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D", oauth_consumer_key="e2p49kcac8695bfpx4v7z9kn", oauth_nonce="lqrupSiiRulQ1UIsWJ7N3YqpSfWYZZK5hJiSuquc9go", oauth_signature="bf9wX5aHSfbFh%2FEGd60wcgs9Xd0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1286329406", oauth_token="he74wsazmnn2cbycucnse9sc", oauth_verifier="test", oauth_version="1.0"
+      content-length: 
+      - 0
+      host: 
+      - openapi.etsy.com
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 403
+      message: Forbidden
+    headers: 
+      content-type: 
+      - text/xml
+      connection: 
+      - close
+      server: 
+      - Mashery Proxy
+      date: 
+      - Wed, 06 Oct 2010 01:41:19 GMT
+      x-mashery-responder: 
+      - proxyworker-i-2566f34c.mashery.com
+      content-length: 
+      - "27"
+      accept-ranges: 
+      - bytes
+      x-mashery-error-code: 
+      - ERR_403_NOT_AUTHORIZED
+    body: <h1>403 Not Authorized</h1>
+    http_version: "1.1"

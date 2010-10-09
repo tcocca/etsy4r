@@ -1,20 +1,19 @@
-begin
-  require 'spec'
-  require 'mocha'
-rescue LoadError
-  require 'rubygems'
-  gem 'rspec'
-  require 'spec'
-  require 'mocha'
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+require 'etsy4r'
+require 'spec'
+require 'spec/autorun'
+require 'webmock/rspec'
+require 'vcr'
+
+Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
+
+Spec::Runner.configure do |config|
+  config.include WebMock
 end
 
-$:.unshift(File.dirname(__FILE__) + '/../lib')
-require 'etsy4r'
-
-module Etsy4rSpecHelper
-  
-  def etsy4r_client
-    Etsy4r::Client.new('dacmw5zgq4x82z95ben5em6v')
-  end
-  
+VCR.config do |c|
+  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  c.http_stubbing_library = :webmock
+  c.default_cassette_options = { :record => :new_episodes }
 end

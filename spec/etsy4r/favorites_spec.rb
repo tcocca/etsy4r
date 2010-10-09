@@ -1,12 +1,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-require File.dirname(__FILE__) + '/../../lib/etsy4r'
 
-describe Etsy4r::FavoriteCommands do
+describe Etsy4r::Favorites do
   include Etsy4rSpecHelper
   
   before do
     @client = etsy4r_client
-    @favorite_commands = Etsy4r::FavoriteCommands.new(@client)
+    @favorite_commands = Etsy4r::Favorites.new(@client)
   end
     
   describe 'initialize' do    
