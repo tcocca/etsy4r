@@ -20,7 +20,6 @@ describe Etsy4r::Server do
         @res = @server_commands.get_method_table
         @res.should be_success
         @res.results.should_not be_nil
-        @res.error_message.should be_blank
       end
     end
   end
@@ -31,7 +30,6 @@ describe Etsy4r::Server do
         @res = @server_commands.ping
         @res.should be_success
         @res.results.should_not be_nil
-        @res.error_message.should be_blank
       end
     end
   end
@@ -42,7 +40,6 @@ describe Etsy4r::Server do
         @res = @server_commands.get_server_epoch
         @res.should be_success
         @res.results.should_not be_nil
-        @res.error_message.should be_blank
       end
     end
   end
