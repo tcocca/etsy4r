@@ -6,7 +6,7 @@ module Etsy4r
     def initialize(response, raise_error = true)
       self.http_response = response
       rash_response(response)
-      raise Error.new(self.http_response.code, self.http_response.message, self.http_response.headers["x-mashery-error-code"]) if !success? && raise_error
+      raise Error.new(self.http_response.code, self.http_response.message, self.http_response.headers) if !success? && raise_error
     end
     
     def success?

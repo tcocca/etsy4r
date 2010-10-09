@@ -1,12 +1,12 @@
 module Etsy4r
   class Error < Exception
     
-    attr_reader :code, :error, :mashery_error
+    attr_reader :code, :error, :headers
     
-    def initialize(code, error, mashery_error_message)
+    def initialize(code, error, headers)
       @code = code
       @error = error
-      @mashery_error = mashery_error_message
+      @headers = headers
       super(message)
     end
     
@@ -22,9 +22,13 @@ module Etsy4r
     private
     
     def translate_code
-      parts = @mashery_error.split('_', 3)
-      if parts.size == 3
-        parts[2].split('_').collect{|s| s.capitalize}.join(' ')
+      if headers.has_key?("x-error-detail")
+        headers["x-error-detail"]
+      elsif headers.has_key?("x-mashery-error-code")
+        parts = headers["x-mashery-error-code"].split('_', 3)
+        if parts.size == 3
+          parts[2].split('_').collect{|s| s.capitalize}.join(' ')
+        end
       end
     end
     
