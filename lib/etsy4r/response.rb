@@ -27,6 +27,17 @@ module Etsy4r
       end
     end
     
+    def paginator
+      return paginator_cache if paginator_cache
+      if self.body.params && self.body.params.limit && self.body.params.offset
+        self.paginator_cache = WillPaginate::Collection.create(self.current_page, self.body.params.limit, self.body.count) do |pager|
+          pager.replace self.body.results
+        end
+      else
+        self.paginator_cache = nil
+      end
+    end
+    
     private
     
     def rash_response(response)
@@ -43,17 +54,6 @@ module Etsy4r
         self.body = Hashie::Rash.new(response)
       else
         self.body = response
-      end
-    end
-    
-    def paginator
-      return paginator_cache if paginator_cache
-      if self.body.params && self.body.params.limit && self.body.params.offset
-        self.paginator_cache = WillPaginate::Collection.create(self.current_page, self.body.params.page, self.body.count) do |pager|
-          pager.replace self.body.results
-        end
-      else
-        self.paginator_cache = nil
       end
     end
     
