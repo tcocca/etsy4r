@@ -21,7 +21,7 @@ describe Etsy4r::Homepage do
   
   context "get featured listing pickers" do
     it "should pickers for the requested listings" do
-      VCR.use_cassette('miscellaneous') do
+      VCR.use_cassette('homepage') do
         @res = @homepage.get_featured_listing_picker('29139,29142')
         @res.should be_success
         @res.results.should_not be_nil
@@ -30,7 +30,7 @@ describe Etsy4r::Homepage do
     end
     
     it "should accept a string of comma separated ids" do
-      VCR.use_cassette('miscellaneous') do
+      VCR.use_cassette('homepage') do
         @res = @homepage.get_featured_listing_picker('29139,29142')
         @res.should be_success
         @res.results.should_not be_nil
@@ -39,7 +39,7 @@ describe Etsy4r::Homepage do
     end
     
     it "should accept an array of ids" do
-      VCR.use_cassette('miscellaneous') do
+      VCR.use_cassette('homepage') do
         @res = @homepage.get_featured_listing_picker([29139,29142])
         @res.should be_success
         @res.results.should_not be_nil
